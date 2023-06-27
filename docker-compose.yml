@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  rabbitmq:
+    container_name: rabbitmq-container
+    image: rabbitmq:3-management
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}
+    ports:
+      - ${RABBITMQ_PORT}:15672
